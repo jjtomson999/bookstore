@@ -1,0 +1,43 @@
+*{
+  box-sizing: border-box;
+  
+}
+body{
+  text-align: center;
+  margin-top: 12px;
+ 
+}
+#slick{
+  width: 60%;
+  margin: 0 auto;
+}
+.show_books{
+  padding-left: 35px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.shadow{
+opacity: 0.6;
+background-color:#9ccf;
+margin-left: 4px;
+
+}
+.book_content{
+  animation-name:sk-bounce;
+  animation-duration: .8s;
+  animation-timing-function: 1s;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+}
+@keyframes sk-bounce {
+  0%{
+     transform: rotate(20deg);
+  }
+  50%{
+    transform: rotate(-20deg);
+  }
+
+  100%{
+    transform: rotate(0deg);
+  }
+}

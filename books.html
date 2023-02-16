@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="book.css">
+  <title>my favorite bookstore</title>
+  <script src="jquery-3.6.3.min.js"></script>
+  <link rel="stylesheet" href="slick/slick.css">
+  <link rel="stylesheet" href="slick/slick/slick-theme.css">
+  <script src="slick/slick.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <button>button</button>
+  <label for="bookId"><input type="text" name="" id="bookId"></label>
+  <p></p>
+</div>
+
+<!-- idを取り出す箱 -->
+<div class="show_books" id="key">
+  <span class="idlist"></span>
+
+  <img src="../images/briefcase@2x.png" alt=""class="book_content">
+</div>
+<div id="slick">
+  <ul class="slide-items">
+    <li><img src="../images/book.jpg" alt=""></li>
+    
+    <li><img src="../images/woder-boy.jpg" alt=""></li>
+  </ul>
+</div>
+<style>
+
+</style>
+<script>
+$(".slide-items").slick({
+autoplay: true, // 自動再生
+autoplaySpeed: 4000, // 再生速度（ミリ秒設定） 1000ミリ秒=1秒
+infinite: true, // 無限スライド
+});
+const input = document.querySelector('input');
+const div = document.querySelector('.container');
+const button = document.querySelector('button');
+let currentBook =3;
+// 検索可能な本の配列
+const books = [
+  {id:1001, name:'猿橋勝子の生涯',status:true},
+  {id:1002, name:'ソフィーの世界',status:0},
+  {id:1003, name: 'comptA',status:false}
+
+]
+// 本の貸し出し状況
+function getBook(){
+  
+  const searchbook = books.forEach((book)=>{
+    if(book.id == input.value){
+      const p = document.querySelector('p');
+      console.log(book.name);
+      p.innerText=book.name;
+
+  　const statusbtn = document.createElement('button');
+      function isRentaledBook(){
+          statusbtn.innerText='貸し出し中';
+          statusbtn.classList.add('shadow');
+
+        }
+      p.append(statusbtn);
+      if(book.status){
+
+        isRentaledBook();
+      }else{
+
+        statusbtn.innerText='貸出可能';
+
+        statusbtn.addEventListener('click',function(){
+        this.classList.add('shadow');
+        this.innerText='カリマシタ';
+      
+          currentBook--;
+          if(currentBook){
+
+            let _this=this
+            setTimeout(()=>{
+              _this.innerText=`${currentBook}`+'冊のこっています'}
+            ,1200)
+          }isRentaledBook();
+              isRentaledBook();
+        });
+      }
+      }
+  })
+}
+button.addEventListener('click',getBook)
+
+const key=document.querySelector('#key');
+key.addEventListener('click',function(){
+  const idlist=document.querySelector('.idlist');
+  idlist.innerText=`検索可能な本のIDは1001 1002 1003`;
+})
+</script>
+  
+</body>
+</html>
