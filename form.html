@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<div>
+  <a href="/movie/bookstore/book.php">TOPへ</a>
+ 
+</div>
+<div class="form-cnt">
+
+  <form method="post" action="update.php">
+    <div>
+      username:
+      <input type="text" name="username" required>
+  
+    </div>
+    <div>
+      password:
+      <input type="password" name="password" required minlength="5">
+     
+    </div>
+    <input type="submit" value="送信" name="login">
+  </form>
+</div>
+<style>
+  body{
+    min-height: 100vh;
+    margin: 0;
+  }
+  .form-cnt{
+    display: flex;
+    align-items: center;
+  }
+form{
+  width: 80%;
+  margin: 0 auto;
+  background: #eefe;
+  text-align: center;
+  padding: 64px;
+}
+form div{
+  padding: 12px;
+
+}
+input[type="submit"]{
+   width: 100px;
+   height: 30px;
+   margin: 0 auto;
+   background: rgb(115, 115, 172);
+   color: white;
+   border: none;
+}
+input[type="submit"]:hover{
+  cursor: pointer;
+  opacity: 0.8;
+}
+</style>
+
+</body>
+</html>
